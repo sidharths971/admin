@@ -1,0 +1,64 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}  Sidharth Enterprices {% endblock %}
+
+
+{% block extrastyle %}
+<style>
+.login #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 60em;
+    min-width: 311px;
+    margin: 131px auto;
+    height: auto;
+}
+.login {
+    background: #009688;
+    height: auto;
+}
+.login #header h1 a {
+    color: #fff;
+    font-size: 40px;
+    font-family: "Bauhaus 93";
+}
+input[type="submit"], button {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rebeccapurple;
+    font-size: 20px;
+    font-family: "Agency FB";
+}
+#container > div {
+    flex-shrink: 7;
+    background-color: yellowgreen;
+}
+.login #header {
+    padding: 15px 20px;
+    background-color: red;
+}
+.cls1{
+    margin-left: 200px;
+    width: 1050px;
+    height: 350px;
+}
+
+</style>
+{% endblock extrastyle %}
+
+{% block extrahead %}
+<div>
+    <img src="{% static 'images/qlu-campus-5851598_1920.jpg' %}"class="cls1" alt="my images">
+
+</div>
+
+{% endblock extrahead %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}"> Sidharth Enterprices </a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
