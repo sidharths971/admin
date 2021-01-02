@@ -130,3 +130,34 @@ class custom_user(AbstractUser):
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+
+
+class person(models.Model):
+
+    first_name=models.CharField(max_length=100,null=True)
+    last_name = models.CharField(max_length=100,null=True)
+    fullname = models.CharField(max_length=200,null=True)
+    age = models.PositiveIntegerField(max_length=3,null=True)
+    ph_no = models.PositiveIntegerField(max_length=10,null=True,default=None)
+
+    def __str__(self):
+        return self.first_name
+
+class order(models.Model):
+
+    id =  models.AutoField(primary_key=True)
+    person = models.ForeignKey(person,on_delete=models.PROTECT,null=True)
+    item = models.CharField(max_length=100,null=True)
+
+    def __str__(self):
+        return self.person.first_name
+
+class comment(models.Model):
+
+    id = models.AutoField(primary_key=True)
+    user = models.ManyToManyField(person)
+    comment = models.TextField(max_length=500,null=True)
+
+
+
